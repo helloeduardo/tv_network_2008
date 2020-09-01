@@ -55,7 +55,7 @@ class ShowTest < Minitest::Test
     nbc.add_show(knight_rider)
     nbc.add_show(parks_and_rec)
 
-    assert_equal [michael_knight, kitt, leslie_knope, ron_swanson], nbc.main_characters
+    assert_equal [kitt], nbc.main_characters
   end
 
   def test_it_has_actors_by_show

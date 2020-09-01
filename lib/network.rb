@@ -11,9 +11,13 @@ class Network
   end
 
   def main_characters
-    @shows.map do |show|
+    all_characters = @shows.map do |show|
       show.characters
     end.flatten
+
+    all_characters.find_all do |character|
+      character.name.upcase == character.name && character.salary > 500_000
+    end
   end
 
   def actors_by_show
@@ -33,7 +37,7 @@ class Network
   def shows_by_actor
     by_actor = {}
 
-    # create hash keys set to empty arrays
+    # create actor hash keys set to empty arrays
     actors.each do |actor|
       by_actor[actor] = []
     end
