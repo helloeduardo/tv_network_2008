@@ -10,4 +10,10 @@ class Network
     @shows << show
   end
 
+  def main_characters
+    @shows.map do |show|
+      show.characters
+    end.flatten
+  end
+
 end
