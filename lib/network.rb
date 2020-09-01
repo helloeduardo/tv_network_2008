@@ -40,12 +40,22 @@ class Network
 
     # shovel in shows each actor is in
     actors_by_show.each do |show, actors|
-      actors.map do |actor|
+      actors.each do |actor|
         by_actor[actor] << show
       end
     end
 
     by_actor
+  end
+
+  def prolific_actors
+    prolific = []
+    shows_by_actor.each do |actor, shows|
+      if shows.length > 1
+        prolific << actor
+      end
+    end
+    prolific
   end
 
 end
