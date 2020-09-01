@@ -24,4 +24,28 @@ class Network
     by_show
   end
 
+  def actors
+    @shows.map do |show|
+      show.actors
+    end.flatten.uniq
+  end
+
+  def shows_by_actor
+    by_actor = {}
+
+    # create hash keys set to empty arrays
+    actors.each do |actor|
+      by_actor[actor] = []
+    end
+
+    # shovel in shows each actor is in
+    actors_by_show.each do |show, actors|
+      actors.map do |actor|
+        by_actor[actor] << show
+      end
+    end
+
+    by_actor
+  end
+
 end
