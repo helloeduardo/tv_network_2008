@@ -16,4 +16,12 @@ class Network
     end.flatten
   end
 
+  def actors_by_show
+    by_show = {}
+    shows.map do |show|
+      by_show[show] = show.actors
+    end
+    by_show
+  end
+
 end
